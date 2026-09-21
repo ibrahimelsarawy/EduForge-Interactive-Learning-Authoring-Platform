@@ -1,0 +1,1 @@
+Global utility classes below are injected through globals.css using @layer components.

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin:0; background:#f8fafc; color:#0f172a; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+button, input, select, textarea { font: inherit; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid #60a5fa; outline-offset:2px; }
+.prose-content h1 { font-size:1.875rem; font-weight:800; }
+.prose-content h2 { font-size:1.5rem; font-weight:700; }
+.prose-content h3 { font-size:1.25rem; font-weight:700; }
+.prose-content blockquote { border-left:4px solid #2563eb; padding-left:1rem; color:#475569; }
+
+@layer components {
+  .btn { @apply inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50; }
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 outline-none transition focus:border-blue-500; }
+}
+/* Preview theme: keep learner cards readable in both themes */
+.preview-surface .preview-card,
+.preview-surface .assessment-question { background:#f8fafc; color:#0f172a; border-color:#e2e8f0; }
+
+
+
+
+
+
+
+
+
+/* Preview-only dark theme: isolated from the editor so theme switching cannot affect authoring UI. */
+.preview-surface[data-theme="dark"], .preview-surface.dark { background:#020617 !important; color:#e2e8f0 !important; border-color:#334155 !important; }
+.preview-surface[data-theme="dark"] .preview-card, .preview-surface.dark .preview-card { background:#0f172a !important; border-color:#334155 !important; color:#e2e8f0 !important; }
+.preview-surface[data-theme="dark"] input, .preview-surface[data-theme="dark"] select, .preview-surface.dark input, .preview-surface.dark select { background:#0f172a !important; color:#f8fafc !important; border-color:#475569 !important; }
+.preview-surface[data-theme="dark"] .assessment-question, .preview-surface.dark .assessment-question { background:#0f172a; border-color:#334155; }
+.preview-surface[data-theme="dark"] .bg-white, .preview-surface.dark .bg-white { background:#0f172a !important; color:#e2e8f0 !important; }
+.preview-surface[data-theme="dark"] .bg-slate-50, .preview-surface.dark .bg-slate-50 { background:#111827 !important; }
+.preview-surface[data-theme="dark"] .bg-slate-100, .preview-surface.dark .bg-slate-100 { background:#1e293b !important; }
+.preview-surface[data-theme="dark"] .text-slate-900, .preview-surface.dark .text-slate-900 { color:#f8fafc !important; }
+.preview-surface[data-theme="dark"] .text-slate-800, .preview-surface.dark .text-slate-800 { color:#e2e8f0 !important; }
+.preview-surface[data-theme="dark"] .text-slate-700, .preview-surface.dark .text-slate-700 { color:#cbd5e1 !important; }
+.preview-surface[data-theme="dark"] .border-slate-300, .preview-surface.dark .border-slate-300 { border-color:#475569 !important; }
+.preview-surface[data-theme="dark"] table, .preview-surface.dark table { color:#e2e8f0; }
+.preview-surface[data-theme="dark"] .bg-blue-50, .preview-surface.dark .bg-blue-50 { background:#172554 !important; }
+.preview-surface[data-theme="dark"] .bg-amber-50, .preview-surface.dark .bg-amber-50 { background:#451a03 !important; }
+
+/* Showcase motion helpers */
+@keyframes ef-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+.ef-float { animation: ef-float 4s ease-in-out infinite; }
+.ef-gradient-text { background:linear-gradient(90deg,#2563eb,#7c3aed,#0ea5e9); -webkit-background-clip:text; background-clip:text; color:transparent; }
